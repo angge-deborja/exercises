@@ -5,16 +5,32 @@
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 def remove_adjacent(nums):
+
     adj_list = []
     [adj_list.append(num) for num in nums if num not in adj_list]
     return adj_list
+
+    """
+    adj_list = []
+    for idx, num in enumerate(nums):
+        if idx > 0 and num == nums[idx - 1]:
+            continue
+        adj_list.append(num)
+    return [n for i, n in enumerate(nums) if n != nums[i - 1]]
+    """
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in sorted order. You may modify the passed in lists.
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
 def linear_merge(list1, list2):
-    return sorted(list1 + list2)
+    lst = []
+    while list1 or list2:
+        if list1:
+            lst.append(list1.pop())
+        if list2:
+            lst.append(list2.pop())
+    return sorted(lst)
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
@@ -38,6 +54,7 @@ def main():
     print('remove_adjacent')
     test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
     test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
+    test(remove_adjacent([2, 1, 3, 1, 3]), [2, 1, 3, 1, 3])
     test(remove_adjacent([]), [])
 
     print('\nlinear_merge')
@@ -47,7 +64,6 @@ def main():
          ['aa', 'bb', 'cc', 'xx', 'zz'])
     test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
          ['aa', 'aa', 'aa', 'bb', 'bb'])
-
 
 if __name__ == '__main__':
     main()
