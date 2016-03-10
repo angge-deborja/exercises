@@ -5,7 +5,9 @@
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 def remove_adjacent(nums):
-    return list(set(nums))
+    adj_list = []
+    [adj_list.append(num) for num in nums if num not in adj_list]
+    return adj_list
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in sorted order. You may modify the passed in lists.
