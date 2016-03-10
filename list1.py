@@ -32,7 +32,7 @@ def front_x(words):
 
     # Separate lists
     for word in words:
-        if word.find('x') == 0:
+        if word.startswith('x'):
             list_1.append(word)
         else:
             list_2.append(word)
