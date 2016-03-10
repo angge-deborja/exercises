@@ -27,25 +27,19 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    list_1 = [] # will contain strings starting with 'x'
-    list_2 = [] # will contain the rest of the strings in list
+    x_words = [] # will contain strings starting with 'x'
 
     # Separate lists
     for word in words:
         if word.startswith('x'):
-            list_1.append(word)
-        else:
-            list_2.append(word)
+            x_words.append(word)
 
-    # Create new list
-    words = []
-    for word in sorted(list_1):
-        words.append(word)
+    words = list(set(words) - set(x_words))
 
-    for word in sorted(list_2):
-        words.append(word)
+    x_words.sort()
+    words.sort()
 
-    return words
+    return x_words + words
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -54,11 +48,7 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 
-# def sorter(val):
-#     return val[1]
-
 def sort_last(tuples):
-#    return sorted(tuples, key = sorter)
     return sorted(tuples, key=lambda x: x[-1])
 
 # Simple provided test() function used in main() to print
