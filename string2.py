@@ -1,6 +1,5 @@
 # Additional basic string exercises
 
-
 # D. verbing
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
@@ -9,10 +8,10 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-    if len(s) >= 3 and 'ing' not in s:
-        return s + 'ing'
-    elif len(s) >= 3 and 'ing' in s:
+    if s.endswith('ing'):
         return s + 'ly'
+    elif len(s) >= 3:
+        return s + 'ing'
     else:
         return s
 
@@ -65,7 +64,6 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
-
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.

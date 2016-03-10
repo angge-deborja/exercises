@@ -7,7 +7,6 @@
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in string2.py.
 
-
 # A. donuts
 # Given an int count of a number of donuts, return a string
 # of the form 'Number of donuts: <count>', where <count> is the number
@@ -16,12 +15,10 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    if count >= 10:
-        text = 'many'
-    else:
-        text = str(count)
-
-    return 'Number of donuts: ' + text
+    string = 'many'
+    if count < 10:
+        string = count
+    return 'Number of donuts: {}'.format(string)
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
@@ -65,7 +62,6 @@ def test(got, expected):
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
 
-
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
 def main():
@@ -93,7 +89,6 @@ def main():
     test(mix_up('dog', 'dinner'), 'dig donner')
     test(mix_up('gnash', 'sport'), 'spash gnort')
     test(mix_up('pezzy', 'firm'), 'fizzy perm')
-
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':

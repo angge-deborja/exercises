@@ -35,10 +35,8 @@ def front_x(words):
             x_words.append(word)
 
     words = list(set(words) - set(x_words))
-
     x_words.sort()
     words.sort()
-
     return x_words + words
 
 # C. sort_last
@@ -59,7 +57,6 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
-
 
 # Calls the above functions with interesting inputs.
 def main():
@@ -83,7 +80,6 @@ def main():
          [(3, 1), (1, 2), (2, 3)])
     test(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]),
          [(2, 2), (1, 3), (3, 4, 5), (1, 7)])
-
 
 if __name__ == '__main__':
     main()
